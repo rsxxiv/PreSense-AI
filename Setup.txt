@@ -1,0 +1,37 @@
+--> All the images stored are of size 216px x 216px and of resolution 1:1 any other image format used may result in error
+--> OpenCV uses BGR color format whereas face_recognition library uses RGB color format.
+
+Library Information:
+        pickle - For Reading and Writing THe Data
+        cvzone - For Decorative Opencv Features
+        numpy - For Using Mathematical Functions
+        cv2 - Image Manipulation using OpenCV
+        os - For Managing the Directories in the Code
+        face_recognition - To Encode Face Data, Recognize and Match Faces
+        firebase_admin - To Integrate Firebase for Realtime Database Management
+
+
+A Python script for face recognition and attendance management.
+This script uses the OpenCV and face_recognition libraries for face recognition and Firebase for storing student information and attendance data.
+
+
+Here is a brief overview of what the script does:
+
+        1. Imports necessary libraries, including OpenCV, face_recognition, Firebase, and others.
+        2. Initializes Firebase with the provided service account credentials.
+        3. Captures video from the default camera and sets its resolution.
+        4. Loads a background image from the 'Resources' folder.
+        5. Loads a list of images from the 'Resources/Modes' folder.
+        6. Loads a pre-encoded list of known faces and their corresponding student IDs from the 'EncodeFile.p' file.
+        7. Enters a loop for capturing and processing video frames.
+
+    Within the loop:
+
+        8. Resizes the captured frame and converts it to RGB format.
+        9. Detects faces in the frame and computes face encodings.
+        10. Compares the face encodings with the known faces in the 'EncodeFile.p'.
+        11. If a match is found, it updates the UI with student information and checks the time elapsed since the last attendance.
+        12. If the time elapsed is greater than or equal to 30 seconds, it updates the student's attendance information in the Firebase Realtime Database.
+        13. After a successful attendance update, the UI shows information about the student.
+
+The script continuously processes frames and updates the UI based on the recognition results. It appears to handle both real-time face recognition and student attendance management using Firebase. Please note that it's essential to have the required dependencies and files in the specified locations for this script to work correctly.
